@@ -1,0 +1,6 @@
+bs4==0.0.1
+pandas==1.2.4
+regex==2021.4.4
+requests==2.25.1
+streamlit==0.82.0
+
