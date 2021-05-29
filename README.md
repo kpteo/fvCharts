@@ -1,9 +1,9 @@
 # fvCharts
 just a simple streamlit app to display a stock's recent price chart and its associated sector/industry charts
 * This solves the problem of having multiple steps in getting salient info about a stock
-** checking a stock's chart
-** remembering the stock's sector and checking the sector chart
-** remembering the stock's industry and checking the industry chart
+  - checking a stock's chart
+  - remembering the stock's sector and checking the sector chart
+  - remembering the stock's industry and checking the industry chart
 
 # About
 * App deployed over at streamlit sharing (beta as of May 2021)
