@@ -67,10 +67,12 @@ def parseDescription(desc_table):
     table = desc_table
     text = table.find('td', attrs = {'class': 'fullview-links'}).text
     temp_list = [i.strip() for i in text.split('|')]
-    
+       
     df_desc = pd.DataFrame([['sector','industry','country'], temp_list], index = ['Desc', 'Value']).T
     
-    return df_desc
+    proper_name = table.find('a', attrs = {'class': 'tab-link'}).text
+    
+    return df_desc, proper_name
 
 # Level 2 function: get the url tail of the ticker's sector chart from df_desc
 def getSectorURL(df_desc):
