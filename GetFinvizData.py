@@ -95,7 +95,7 @@ def getIndustryURL(df_desc):
     
     #get industry url
     industry = df_desc.iloc[1, 1]
-    industry_format = industry.lower().replace(' ', '').replace('&', '').replace('-', '')
+    industry_format = industry.lower().replace(' ', '').replace('&', '').replace('-', '').replace(',', '')
     industry_url = 'https://finviz.com/groups.ashx?g=industry&v=410&o=name'
     industry_html = requests.post(industry_url, headers = headers).text
     industry_soup = BeautifulSoup(industry_html,'html.parser')
