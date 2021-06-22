@@ -5,7 +5,6 @@ Module to scrape Yahoo data
 
 """
 
-import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 
@@ -33,5 +32,10 @@ def readFinancialsYahoo(stock_ticker):
 def parseEarningsDate(stock_ticker):
     table = readFinancialsYahoo(stock_ticker)
     info = table.find('td', attrs = {'data-test': 'EARNINGS_DATE-value'})
+    earnings = info.text
     
-    return info.text
+    # simple error handling for ticker without earnings like ETF
+    if info is None:
+        earnings = 'no earnings date found'
+    
+    return earnings
