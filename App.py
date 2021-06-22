@@ -50,8 +50,11 @@ if text or button:
                  width = 860)
         st.image('https://finviz.com/{}'.format(sector),
                  width = 860)
-        st.image('https://finviz.com/{}'.format(industry),
-                 width = 860)
+        if industry == 'ETF':
+            st.write('ETF has no industry chart')
+        else:
+            st.image('https://finviz.com/{}'.format(industry),
+                     width = 860)
 
 
 

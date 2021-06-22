@@ -95,12 +95,15 @@ def getIndustryURL(df_desc):
     
     #get industry url
     industry = df_desc.iloc[1, 1]
-    industry_format = industry.lower().replace(' ', '').replace('&', '').replace('-', '').replace(',', '')
-    industry_url = 'https://finviz.com/groups.ashx?g=industry&v=410&o=name'
-    industry_html = requests.post(industry_url, headers = headers).text
-    industry_soup = BeautifulSoup(industry_html,'html.parser')
-    
-    industry_img_url_tail = industry_soup.findAll('img', {'src' : re.compile('{}*'.format(industry_format))})[0].get('src')
+    if industry == 'Exchange Traded Fund':
+        industry_img_url_tail = 'ETF'
+    else:
+        industry_format = industry.lower().replace(' ', '').replace('&', '').replace('-', '').replace(',', '')
+        industry_url = 'https://finviz.com/groups.ashx?g=industry&v=410&o=name'
+        industry_html = requests.post(industry_url, headers = headers).text
+        industry_soup = BeautifulSoup(industry_html,'html.parser')
+        
+        industry_img_url_tail = industry_soup.findAll('img', {'src' : re.compile('{}*'.format(industry_format))})[0].get('src')
     
     return industry_img_url_tail
 
