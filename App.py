@@ -6,7 +6,7 @@ streamlit app working alongside with GetFinvizData.py
 
 import streamlit as st
 import GetFinvizData as gf
-import GetYahooData as gy
+#import GetYahooData as gy
 
 # wrapper function to get required data from finviz
 def getInfo(ticker):
@@ -39,9 +39,9 @@ if text or button:
     else:
         # st.write('Extracting results for ' + text.upper())
         sector, industry, df_f, df_d, name = getInfo(text)
-        earningsdate = gy.parseEarningsDate(text)
+        #earningsdate = gy.parseEarningsDate(text)
         st.write(name)
-        st.write('Approximate Earnings: {}'.format(earningsdate))
+        #st.write('Approximate Earnings: {}'.format(earningsdate))
         st.header('Delayed financial info')
         st.write(df_f)
         st.header('Sector > Industry info')
